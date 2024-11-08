@@ -25,13 +25,12 @@ for match in pattern.finditer(log_block):
     action = match.group(2)
     packages = match.group(3)
     
-    # Find individual package names with possible hyphens, periods, and plus signs, excluding "automatic"
-    package_list = re.findall(r'([\w\-.+]+):\w+\s+\((?!.*automatic)', packages)
+    # Find individual package names without "automatic" in parentheses
+    package_list = re.findall(r'([\w\-.+]+):\w+\s+\((?!.*automatic).*?\)', packages)
     
     
     # Append each package with date and action to the results
     for package in package_list:
         results.append((date, action, package))
         print(f"{package},{date},{action}")
-
 
