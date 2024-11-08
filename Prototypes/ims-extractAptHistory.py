@@ -19,7 +19,9 @@ def parse_apt_history_log(log_path):
     return installed_packages
 
 # Path to the history.log file
-log_path = "/var/log/apt/history.log"
+log_path = "/var/log/apt/history.log" # official log location
+log_path = "/home/mbeware/Documents/dev/InstallMyStuff/TestLogs/apt/history.log" # test log
+
 
 # Get the list of installed packages
 installed_packages = parse_apt_history_log(log_path)
