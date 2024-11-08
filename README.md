@@ -1,20 +1,12 @@
 # InstallMyStuff
-  Parse many package manager logs to extract the list of installed 
-  packages and create a script to reinstall those packages. 
+  Parse many package manager logs to extract the list of installed packages and create a script to reinstall those packages. 
 
 ## Folders : 
 ### Protoypes :
-      Tests programs and experiementations. those programs should
-      only read installations and sometimes create files in the
-      current directory. If a program install or change an existing
-      file, there will be a warning in the code, and at runtime.
+      Tests programs and experiementations. those programs should only read installations and sometimes create files in the current directory. If a program install or change an existing file, there will be a warning in the code, and at runtime.
   
 ### TestLogs/<package manager> :
-      test logs for that package manager. sometime, there is
-      a .result file that include the expected result (for human
-      as sometimes it's the final package list, but most of the
-      time, it is the intermediate list with all Install and
-      Remove list, with date/time, versions and all)
+      test logs for that package manager. sometime, there is a .result file that include the expected result (for human as sometimes it's the final package list, but most of the time, it is the intermediate list with all Install and Remove list, with date/time, versions and all)
   
 ### lib :
     Common libraries shared amongst all tools
