@@ -24,7 +24,7 @@ End-Date: 2024-02-04  23:29:29
 
 Start-Date: 2024-02-06  12:28:29
 Requested-By: mbeware (1000)
-Install: mc-data:amd64 (3:4.8.27-1, automatic), mc:amd64 (3:4.8.27-1)
+Install: mc:amd64 (3:4.8.27-1), mc-data:amd64 (3:4.8.27-1, automatic)
 End-Date: 2024-02-06  12:28:30
 
 Start-Date: 2024-02-06  20:19:31
