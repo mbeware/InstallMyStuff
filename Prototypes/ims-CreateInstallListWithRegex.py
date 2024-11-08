@@ -55,7 +55,7 @@ for match in pattern.finditer(log_block):
     
         
         if action in ['Install', 'Remove']:
-            package_list = re.findall(regex_extractPackageNameAndVersion", packages)
+            package_list = re.findall(regex_extractPackageNameAndVersion, packages)
         
         
             # Append each package with date and action to the results
