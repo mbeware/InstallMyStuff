@@ -1,6 +1,6 @@
 import re
 
-regex_extractDataAndBlock = r"?<=Start-Date: )(\d{4}-\d{2}-\d{2}  \d{2}:\d{2}:\d{2})(?:[\s\S]*?)(?=End-Date)"
+regex_extractDataAndBlock = r"(?<=Start-Date: )(\d{4}-\d{2}-\d{2}  \d{2}:\d{2}:\d{2})(?:[\s\S]*?)(?=End-Date)"
 regex_extractCommandLinePackages = r'^Commandline: apt-get.*?install\s+([a-zA-Z0-9-]+(?:(?:\s+[a-zA-Z0-9-]+)*))'
 regex_extractInstallRemoveAndPackages =  r'^(?:Install|Update|Upgrade|Remove):\s+((?:[a-zA-Z0-9-]+:[a-zA-Z0-9-]+\s*\([^\)]+\)(?!,\s*automatic),?\s*)+))'
 regex_extractPackageNameAndVersion = r"([\w\-.+]+):\w+\s+\((.*?)\)"
