@@ -1,7 +1,7 @@
 import re
 
-regex_extractDataAndBlock = r"(?<=Start-Date: )(\d{4}-\d{2}-\d{2}  \d{2}:\d{2}:\d{2})(?:[\s\S]*?)(?=End-Date)"
-regex_extractCommandLinePackages = r'^Commandline: apt-get.*?install\s+([a-zA-Z0-9-]+(?:(?:\s+[a-zA-Z0-9-]+)*))'
+regex_extractDataAndBlock = r"(?<=Start-Date: )(\d{4}-\d{2}-\d{2}  \d{2}:\d{2}:\d{2})\n*((?:[\s\S]*?))(?=End-Date)"
+regex_extractCommandLinePackages = r'^Commandline: apt-get.*?install\s+([a-zA-Z0-9-]+(?:(?:\s+[a-zA-Z0-9-]+)*))\n'
 regex_extractInstallRemoveAndPackages =  r'^(?:Install|Update|Upgrade|Remove):\s+((?:[a-zA-Z0-9-]+:[a-zA-Z0-9-]+\s*\([^\)]+\)(?!,\s*automatic),?\s*)+))'
 regex_extractPackageNameAndVersion = r"([\w\-.+]+):\w+\s+\((.*?)\)"
 
@@ -25,7 +25,7 @@ pattern = re.compile(
     re.MULTILINE | re.DOTALL
 )
 
-tst = re.findall(regex_extractDataAndBlock, log_block, re.MULTILINE | re.DOTALL)
+tst = re.findall(regex_extractDataAndBlock, log_block, re.MULTILINE |  re.DOTALL)
 
 
 # Extract date, action, and packages from each matching block
