@@ -2,7 +2,7 @@ import re
 
 regex_extractDataAndBlock = r"(?<=Start-Date: )(\d{4}-\d{2}-\d{2}  \d{2}:\d{2}:\d{2})\n*((?:[\s\S]*?))(?=End-Date)"
 regex_extractCommandLinePackages = r'^Commandline: apt-get.*?install\s+([a-zA-Z0-9-]+(?:(?:\s+[a-zA-Z0-9-]+)*))\n'
-regex_extractInstallRemoveAndPackages =  r'^(?:Install|Update|Upgrade|Remove):\s+((?:[a-zA-Z0-9-]+:[a-zA-Z0-9-]+\s*\([^\)]+\)(?!,\s*automatic),?\s*)+))'
+regex_extractInstallRemoveAndPackages =  r'^(Install|Update|Upgrade|Remove):\s+([^,()]+(?:\([^()]*\)[^,()]*)*)'
 regex_extractPackageNameAndVersion = r"([\w\-.+]+):\w+\s+\((.*?)\)"
 
 installed_packages = []
@@ -39,9 +39,15 @@ for match in pattern.finditer(log_block):
     # Extract package details from the block
     # Commandline info 
     commandline_packages = re.findall(regex_extractCommandLinePackages, block, re.MULTILINE | re.DOTALL)
-    
-    for package,info in commandline_packages:
-        print(f"{package},{date},Install")
+    pattern_match_commandline = re.compile(
+        regex_extractCommandLinePackages, 
+        re.MULTILINE | re.DOTALL    
+    )
+    for package_match_commandline in pattern_match_commandline.finditer(block):
+        commandline_packages = package_match_commandline.group(1)
+        commandline_packages_list = commandline_packages.split()
+        for package in commandline_packages_list:
+            print(f"{package},{date},Install")
     
     # Install info 
     pattern_install = re.compile(
