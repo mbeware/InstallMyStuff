@@ -25,3 +25,4 @@ TestLogs/apt/history.log.1.gz
 TestLogs/apt/history.log.2
 TestLogs/apt/history.log.2.gz
 TestLogs/apt/history.log.results
+ims/reinstall_current.sh
