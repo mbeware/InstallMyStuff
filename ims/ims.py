@@ -289,7 +289,7 @@ class IMS:
         print("All entries:")
         print(f"{'Action':<12} {'Package':<25} {'Manager':<12} {'State':<12} {'Date':<20}")
         print("-" * 85)
-        
+         
         # Show committed entries
         for entry in self.data.committed:
             if entry["action"] in ["install", "remove"]:
